@@ -1,87 +1,90 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+# Clasificador de Traducciones NLP
 
-# Natural Language Processing Challenge
+## Descripción
+Proyecto de procesamiento de lenguaje natural para clasificar traducciones entre automáticas y humanas.
 
-## Introduction
-
-Learning how to process text is a skill required for Data Scientists. In this project, you will put these skills into practice to identify whether a sentence was automatically translated or translated by a human.
-
-## Project Overview
-
-In this repository you will find dataset containing sentences in Spanish and their tags: 0, if the sentences was translated by a Machine, 1, if the sentence was translated by a professional translator. Your goal is to build a classifier that is able to distinguish between the two.
-
-## Project Structure
+## Estructura del Proyecto
 ```
 .
 ├── README.md
 ├── requirements.txt
 ├── setup.py
-├── src
-│   ├── data
-│   │   ├── TRAINING_DATA.txt
-│   │   └── REAL_DATA.txt
-│   ├── models
-│   │   └── train_models.py
-│   └── notebooks
-│       └── 01_exploratory_analysis.ipynb
-└── models/
+└── src/
+    ├── data/
+    │   ├── TRAINING_DATA.txt
+    │   └── REAL_DATA.txt
+    ├── models/
+    │   └── train_models.py
+    └── notebooks/
+        └── 01_exploratory_analysis.ipynb
 ```
 
-## Installation
+## Configuración del Entorno
 
-1. Clone this repository:
+### Prerequisitos
+- Python 3.8 o superior
+- pip (gestor de paquetes de Python)
+- git
+
+### Pasos de Instalación
+
+1. Clonar el repositorio:
 ```bash
-git clone [repository-url]
-cd [repository-name]
+git clone <url-del-repositorio>
+cd project-3-nlp
 ```
 
-2. Create a virtual environment (recommended):
+2. Crear y activar entorno virtual:
 ```bash
+# En Windows:
 python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+venv\Scripts\activate
+
+# En macOS/Linux:
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-3. Install dependencies:
+3. Instalar dependencias:
 ```bash
 pip install -r requirements.txt
+
+# Instalar modelo de spaCy en español
+python -m spacy download es_core_news_md
 ```
 
-## Usage
-
-1. **Exploratory Data Analysis**:
-   - Open and run the Jupyter notebook: `src/notebooks/01_exploratory_analysis.ipynb`
-
-2. **Train Models**:
+### Verificación de la Instalación
 ```bash
-cd src/models
-python train_models.py
+python
+>>> import spacy
+>>> nlp = spacy.load('es_core_news_md')
+>>> exit()
 ```
 
-3. **Model Performance**:
-   The script will train and evaluate multiple models:
-   - Naive Bayes
-   - Support Vector Machine
-   - Random Forest
-   
-   Results will be logged and models will be saved in the `models/` directory.
+## Uso del Proyecto
 
-## Deliverables
+1. **Análisis Exploratorio**:
+   - Abrir Jupyter Notebook:
+   ```bash
+   jupyter notebook src/notebooks/01_exploratory_analysis.ipynb
+   ```
 
-1. **Python Code:** Well-documented Python code that conducts the analysis.
-2. **Accuracy estimation:** Estimation of model performance.
-3. **Classified Dataset**: Ability to classify new datasets.
+2. **Entrenamiento de Modelos**:
+   ```bash
+   python src/models/train_models.py
+   ```
 
-## Model Selection
+## Solución de Problemas Comunes
 
-We implement and compare multiple models:
-- Classical ML approaches (Naive Bayes, SVM, Random Forest)
-- Feature engineering techniques (TF-IDF, Word Embeddings)
-- Performance metrics (Accuracy, F1-score, Training time)
+1. **Error con spaCy**:
+   ```bash
+   python -m spacy download es_core_news_md
+   ```
 
-## Contributing
+2. **Error con Jupyter**:
+   ```bash
+   pip install notebook
+   ```
 
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
+## Contacto
+[Jose Ortiz] - [jose.ortiz@ironhack.com]
